@@ -1,10 +1,5 @@
-<center><font size=6>中心损失函数CenterLoss的实现</font></center>
 
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
-</script>
-<!--这段代码用于转化为PDF时候，数学公式能正常渲染。-->
+## 中心损失函数CenterLoss的实现
 
 在Keras中可通过继承`Layer`的类自定义一个中心损失函数层，在这个新建的层中只需要重写`build`,`call`,`compute_output_shape`函数，其中在`build`中添加一个centers的权重，用于存放中心点，其大小为`num_class x num_features`,即模型输出数x特征数。由于centers不是由梯度来学习的，所以需要设置`trainable=False`。
 ~~~py
